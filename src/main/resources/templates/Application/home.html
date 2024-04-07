@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Renarde Tracking Platform</title>
+  <style>
+    /* Add your custom CSS styles here */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4; /* Adjust background color */
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .navigation-bar {
+      background-color: #333;
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    .navigation-bar a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 20px;
+      padding: 10px 20px;
+      border-radius: 20px;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .navigation-bar a:hover {
+      background-color: #fff;
+      color: #333;
+      border-color: #333;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tracking Platform</h1>
+    <nav class="navigation-bar">
+      <a href="{uri:Application.index}">Add Asset</a>
+      <a href="{uri:Application.updateAsset}">Update Asset</a>
+      <a href="{uri:Application.allAssets}">All assets</a>
+      <a href="{uri:Application.deleteAsset}">Delete Asset</a>
+    </nav>
+  </header>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>All Assets</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .asset-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .asset-square {
+      width: 250px;
+      height: 250px;
+      background-color: #ffffff;
+      border: 2px solid #4CAF50;
+      border-radius: 10px;
+      margin: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+    .asset-square:hover {
+      transform: scale(1.05);
+    }
+    .asset-info {
+      margin-top: 20px;
+    }
+    .asset-info p {
+      margin: 5px 0;
+      color: #666;
+    }
+    .asset-info p strong {
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>All Assets</h1>
+  <div class="asset-container">
+    <!-- Iterate over assets using the #for directive -->
+    {#for asset in assets}
+    <div class="asset-square">
+      <h2 style="color: #4CAF50; text-align: center;">Asset {asset.assetId}</h2>
+      <div class="asset-info">
+        <p><strong>Created Date:</strong> {asset.createdDate}</p>
+        <p><strong>Status:</strong> {asset.status}</p>
+        <p><strong>Type:</strong> {asset.type}</p>
+      </div>
+    </div>
+    {/for}
+  </div>
+ 
+</body>
+</html>

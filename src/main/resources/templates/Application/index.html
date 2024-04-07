@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Asset</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container label {
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .form-container input[type="date"],
+        .form-container input[type="text"],
+        .form-container select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-container button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+    <h2>Add Asset</h2>
+        {#form uri:Application.index()}
+            <label for="createdDate">Created Date:</label>
+            <input type="date" id="createdDate" name="createdDate" required>
+
+            <label for="lastModifiedDate">Last Modified Date:</label>
+            <input type="date" id="lastModifiedDate" name="lastModifiedDate" required>
+
+            <label for="status">Status:</label>
+            <select id="status" name="status" required>
+                <option value="ACTIVE">Active</option>
+                <option value="INACTIVE">Inactive</option>
+            </select>
+
+            <label for="tenantOwner">Tenant Owner:</label>
+            <input type="text" id="tenantOwner" name="tenantOwner" required>
+
+            <label for="type">Type:</label>
+            <input type="text" id="type" name="type" required>
+
+            <!-- Use type="submit" to trigger form submission -->
+            <button type="submit">Submit</button>
+        {/form}
+    </div>
+
+    <script>
+        function submitForm() {
+            var formData = new FormData();
+            formData.append('createdDate', document.getElementById('createdDate').value);
+            formData.append('lastModifiedDate', document.getElementById('lastModifiedDate').value);
+            formData.append('status', document.getElementById('status').value);
+            formData.append('tenantOwner', document.getElementById('tenantOwner').value);
+            formData.append('type', document.getElementById('type').value);
+
+            // Send form data to the server using fetch API
+            fetch('/index', {
+                method: 'POST',
+                body: formData
+            });
+        }
+    </script>
+    
+</body>
+</html>
